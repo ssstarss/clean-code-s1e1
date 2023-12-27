@@ -16,11 +16,8 @@ var completedTasksHolder=document.getElementById("completed-tasks");//ul of comp
 
 //New task list item
 var createNewTaskElement=function(taskString){
-
   var listItem=document.createElement("li");
-
-  //input (checkbox)
-  var checkBox=document.createElement("input");//checkbox
+  var checkBox=document.createElement("input"); //input (checkbox)
   //label
   var label=document.createElement("label");//label
   //input (text)
@@ -30,13 +27,14 @@ var createNewTaskElement=function(taskString){
   //button.delete
   var deleteButton=document.createElement("button");//delete button
   var deleteButtonImg=document.createElement("img");//delete button image
-
+listItem.className = "tasks-item"
   label.innerText=taskString;
   label.className="task";
   //Each elements, needs appending
   checkBox.type="checkbox";
+  checkBox.className = "input__checkbox"
   editInput.type="text";
-  editInput.className="task";
+  editInput.className="task input__task";
 
   editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
   editButton.className="button__edit";
@@ -77,7 +75,7 @@ var editTask=function(){
 
   var listItem=this.parentNode;
 
-  var editInput=listItem.querySelector("input[type=text]");
+  var editInput=listItem.querySelector(".input__task");
   var label=listItem.querySelector("label");
   var editBtn=listItem.querySelector("button.button__edit");
   var containsClass=listItem.classList.contains("edit-mode");
@@ -88,9 +86,9 @@ var editTask=function(){
     //label becomes the inputs value.
     label.innerText=editInput.value;
     editBtn.innerText="Edit";
-  }else {
-    editInput.value=label.innerText;
-    editBtn.innerText="Save";
+  } else {
+      editInput.value=label.innerText;
+      editBtn.innerText="Save";
     }
 
     //toggle .editmode on the parent.
@@ -138,7 +136,6 @@ var ajaxRequest=function(){
 
 //The glue to hold it all together.
 
-
 //Set the click handler to the addTask function.
 addButton.onclick=addTask;
 addButton.addEventListener("click",addTask);
@@ -148,10 +145,9 @@ addButton.addEventListener("click",ajaxRequest);
 var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
   console.log("bind list item events");
   //select ListItems children
-  var checkBox=taskListItem.querySelector("input[type=checkbox]");
+  var checkBox=taskListItem.querySelector(".input__checkbox");
   var editButton=taskListItem.querySelector("button.button__edit");
   var deleteButton=taskListItem.querySelector("button.button__delete");
-
 
   //Bind editTask to edit button.
   editButton.onclick=editTask;
@@ -168,8 +164,6 @@ for (var i=0; i<incompletedTaskHolder.children.length;i++){
   //bind events to list items chldren(tasksCompleted)
   bindTaskEvents(incompletedTaskHolder.children[i],taskCompleted);
 }
-
-
 
 
 //cycle over completedTasksHolder ul list items
