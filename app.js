@@ -19,7 +19,7 @@ var createNewTaskElement=function(taskString){
   var listItem=document.createElement("li");
   var checkBox=document.createElement("input"); //input (checkbox)
   //label
-  var label=document.createElement("label");//label
+  var label=document.createElement("a");//label
   //input (text)
   var editInput=document.createElement("input");//text
   //button.edit
@@ -76,7 +76,7 @@ var editTask=function(){
   var listItem=this.parentNode;
 
   var editInput=listItem.querySelector(".input__task");
-  var label=listItem.querySelector("label");
+  var label=listItem.querySelector("a");
   var editBtn=listItem.querySelector("button.button__edit");
   var containsClass=listItem.classList.contains("edit-mode");
   //If class of the parent is .editmode
