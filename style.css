@@ -173,6 +173,6 @@ ul#completed-tasks .task {
   width: 224px;
 }
 
- li.edit-mode label {
+ li.edit-mode a {
   display: none;
 }
