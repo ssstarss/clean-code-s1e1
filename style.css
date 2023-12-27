@@ -164,15 +164,15 @@ ul#completed-tasks .task {
 }
 
 /* Edit Task */
-ul li .input__task {
+ li .input__task {
   display: none;
 }
 
-ul li.edit-mode .input__task {
+ li.edit-mode .input__task {
   display: inline-block;
   width: 224px;
 }
 
-ul li.edit-mode label {
+ li.edit-mode label {
   display: none;
 }
