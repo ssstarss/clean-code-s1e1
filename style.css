@@ -20,7 +20,9 @@
   font-family: fantasy, cursive;
 }
 
-@media (max-width:768px) {
+
+@media (max-width: 768px) {
+
   .header { 
     text-align: center;
   }
@@ -158,7 +160,8 @@ h3 {
 }
 
 /* Completed */
-ul#completed-tasks .task {
+
+#completed-tasks .task {
   text-decoration: line-through;
   color: #888;
 }
@@ -168,11 +171,13 @@ ul#completed-tasks .task {
   display: none;
 }
 
- li.edit-mode .input__task {
+
+.edit-mode .input__task {
   display: inline-block;
   width: 224px;
 }
 
- li.edit-mode a {
+.edit-mode a {
+
   display: none;
 }
